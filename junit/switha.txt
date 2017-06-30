@@ -1,0 +1,36 @@
+package com.mycompany.app;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+import org.junit.runners.Parameterized.Parameters;
+import java.util.Arrays;
+import java.util.Collection;
+import static org.junit.Assert.assertEquals;
+import static org.junit.runners.Parameterized.*;
+@RunWith(Parameterized.class)
+public class MultiTest
+{
+    @Parameter(0)
+    public int a1;
+    @Parameter(1)
+    public int b1;
+
+    //public int expected;
+    public int actual;
+
+    @Parameters
+    public static Collection <Object[]> data() {
+        Object[][] data=new Object[][]{{1,2},{34,45}};
+        return Arrays.asList(data);
+    }
+    @Test
+
+       
+        
+        public void MultiTest()
+        {
+             Multi m=new Multi();
+            actual=m.multi(a1,b1);
+            assertEquals(actual,a1*b1);
+        }
+    }
