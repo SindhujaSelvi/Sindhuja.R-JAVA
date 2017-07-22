@@ -1,0 +1,119 @@
+TWO TYPES OF INNER CLASS:
+1.NON-STATIC NESTED CLASS(INNER CLASS)
+	Member inner class
+	Annomynous inner class
+	Local inner class
+2.STATIC NESTED CLASS
+
+1.Member inner class
+import java.util.*;
+class MemberinnerTest
+{
+    private int a=10;
+    class Inner{
+        void display()
+        {
+            System.out.println("Value of a " +a);
+        }
+    }
+    public static void main(String args[])
+    {
+        MemberinnerTest outer=new MemberinnerTest();
+        MemberinnerTest.Inner inner=outer.new Inner();
+        inner.display();
+    }
+}
+
+
+
+2.a.Annomynous inner class using abstract
+import java.util.*;
+abstract class AbstractClass
+{
+   abstract void display();
+}
+class Anonymousinner1Test extends AbstractClass
+{
+    void display()
+        {
+            System.out.println("This represents Anonymousinner class using abstract");
+        }
+
+public static void main(String args[])
+   {
+       AbstractClass  annonymousinner = new Anonymousinner1Test();
+        annonymousinner.display();
+    }
+}
+
+
+2.b.Annomynous inner class using interface
+import java.util.*;
+interface TestInterface
+{
+    void display();
+}
+class Anonymousinner2Test 
+{
+    public static void main(String args[])
+    {
+        // difference from normal interface 
+        TestInterface interfaceobject = new TestInterface()
+        {
+        public void display()
+        {
+            System.out.println("Anonymous Inner class using interface");
+        }
+    };
+    //calling of interface
+    interfaceobject.display();
+    }
+}
+
+
+
+
+3.Local inner classimport java.util.*;
+
+class LocalinnerTest{
+    private int a=10;
+    
+    void display()
+    {
+        //class is created within the method
+        class Local
+        {
+            void disp()
+            {
+                System.out.println("Program for local inner class");
+                System.out.println("Value of a " +a);
+            }
+        }
+        Local local = new Local();
+        local.disp();
+    }
+    public static void main(String args[])
+    {
+        LocalinnerTest localinnertest = new LocalinnerTest();
+        localinnertest.display();
+    }
+}
+
+
+
+
+
+4.Static nested class
+import java.util.*;
+class StaticnestedTest{  
+  static int data=30;  
+  static class Inner{  
+   void msg(){System.out.println("data is "+data);}  
+  }  
+  public static void main(String args[])
+  {  
+  StaticnestedTest.Inner obj=new StaticnestedTest.Inner();  
+  obj.msg();  
+  }  
+}  
+

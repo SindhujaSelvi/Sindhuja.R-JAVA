@@ -1,0 +1,51 @@
+//Example for sorting
+package com.kgfsl.log4jtest.app;
+import java.util.ArrayList;
+import java.util.*;
+import java.util.List;
+import java.util.stream.Collectors;
+public class SortExample
+{
+    public static void main(String args[])
+    {
+        List<Integer> list = Arrays.asList(4,5,2,7,9);
+        System.out.println("Sorted order:" +list.stream().sorted().collect(Collectors.toList()));
+    }
+}
+
+
+
+//Example program for skip and limit
+
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Stream;
+
+public class StreamLimitSkipExample {
+   public static void main(String[] args) {
+      
+      List<Integer> numbers = new ArrayList<>();
+      numbers.add(1);
+      numbers.add(2);
+      numbers.add(3);
+      numbers.add(4);
+      numbers.add(5);
+      numbers.add(6);
+
+      Stream<Integer> stream1 = numbers.stream();
+      // Limit - return new stream of 3 elements
+      System.out.println("--------Stream elements after limiting----------");
+      stream1.limit(3).forEach((a) -> {
+         System.out.println(a);
+      });
+
+      Stream<Integer> stream2 = numbers.stream();
+      // Skip - return new stream of remaining elements
+      // after skipping first 2 elements
+      System.out.println("--------Stream elements after skipping----------");
+      stream2.skip(2).forEach((a) -> {
+         System.out.println(a);
+      });
+   }
+}
